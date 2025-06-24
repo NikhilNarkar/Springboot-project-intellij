@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html lang="en">
+<head>
+    <title>Designation Form</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<h1>Designation Form</h1>
+<form th:action="@{/designations/save}" th:object="${designation}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <div>
+        <label>Name:</label>
+        <label>
+            <input type="text" th:field="*{name}" required/>
+        </label>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+    </div>
+</form>
+<a class="button" href="/designations">Back to Designation List</a>
+</body>
+</html>

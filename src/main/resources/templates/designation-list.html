@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Designation List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
+</head>
+<body>
+<h1>Designation List</h1>
+<div th:if="${message}" class="alert alert-success">
+    <p th:text="${message}"></p>
+</div>
+<div th:if="${errorMessage}" class="alert alert-danger">
+    <p th:text="${errorMessage}"></p>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="designation : ${designations}">
+        <td th:text="${designation.id}"></td>
+        <td th:text="${designation.name}"></td>
+        <td>
+            <a th:href="@{/designations/edit/{id}(id=${designation.id})}">Edit</a>
+            <a th:href="@{/designations/delete/{id}(id=${designation.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a class="button" href="/designations/add">Add New Designation</a>
+</body>
+</html>

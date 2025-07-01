@@ -1,5 +1,7 @@
 package com.example.Employee.Management;
-
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,10 +10,28 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
-    private String Emp_name;
+
+    @Column(name = "emp_name")
+    @NotBlank
+    @Size(max = 20, message = "Name must be at most 20 characters")
+    private String name;
+
+    @Column(unique = true, nullable = false)
+    @NotBlank
+    @Email
+    @Size(max = 50, message = "Email must be at most 50 characters")
     private String email;
+
+    @NotBlank(message = "Password is required")
+    @Size(min = 6, max = 20, message = "Password must be 6 to 20 characters")
     private String password;
-    private String mobile_number;
+
+    @Column(name = "mobile_number")
+    private String mobile;
+
+    @Column
+    @NotBlank
+    @Size(max = 20, message = "Location must be at most 20 characters")
     private String location;
 
     @ManyToOne
@@ -26,12 +46,12 @@ public class Employee {
         this.id = id;
     }
 
-    public String getEmp_name() {
-        return Emp_name;
+    public String getName() {
+        return name;
     }
 
-    public void setEmp_name(String emp_name) {
-        Emp_name = emp_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -50,12 +70,12 @@ public class Employee {
         this.password = password;
     }
 
-    public String getMobile_number() {
-        return mobile_number;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setMobile_number(String mobile_number) {
-        this.mobile_number = mobile_number;
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getLocation() {

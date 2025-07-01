@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+</head>
+<body>
+<div class="container">
+    <h1>Login</h1>
+    <form th:action="@{/login}" method="post">
+        <label for="username">Employee ID</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Login</button>
+
+        <div th:if="${param.error}">
+            <p style="color:red;">Invalid ID or password</p>
+        </div>
+        <div th:if="${param.logout}">
+            <p style="color:green;">You have been logged out.</p>
+        </div>
+
+        <script>
+            if (window.location.search.includes('logout')) {
+              window.location.reload(true); // Forces reload from server, not cache
+            }
+        </script>
+    </form>
+</div>
+</body>
+</html>

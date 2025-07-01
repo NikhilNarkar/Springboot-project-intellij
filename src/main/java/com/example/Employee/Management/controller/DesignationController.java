@@ -1,5 +1,7 @@
-package com.example.Employee.Management;
+package com.example.Employee.Management.controller;
 
+import com.example.Employee.Management.Designation;
+import com.example.Employee.Management.service.DesignationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

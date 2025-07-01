@@ -1,20 +1,21 @@
 /* Global Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+    background-color: #fff8f0;
     margin: 0;
     padding: 0;
-    color: #343a40;
+    color: #4b2e2e;
+    line-height: 1.6;
 }
 
 h1 {
-    color: #007bff;
+    color: #d2691e;
     text-align: center;
-    margin-top: 20px;
+    margin: 30px 0;
 }
 
 a {
-    color: #007bff;
+    color: #c1440e;
     text-decoration: none;
 }
 
@@ -27,72 +28,181 @@ table {
     width: 90%;
     margin: 20px auto;
     border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    background-color: #fffefc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
     overflow: hidden;
 }
 
 th, td {
-    padding: 15px;
+    padding: 14px 18px;
     text-align: left;
+    border-bottom: 1px solid #f1e1d2;
 }
 
 th {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #ff8c42;
+    color: #fffaf0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #fff3e0;
 }
 
 tr:hover {
-    background-color: #e9ecef;
+    background-color: #ffe0b2;
 }
 
 /* Form Styles */
 form {
     width: 50%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #fffdf8;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 form div {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 form label {
     display: block;
-    margin-bottom: 5px;
-    color: #495057;
-}
-
-form input, form select, form button {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    box-sizing: border-box;
+    margin-bottom: 8px;
+    color: #6b3e26;
+    font-weight: 500;
 }
 
 form input, form select {
-    margin-bottom: 10px;
-    background-color: #e9ecef;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #deb887;
+    border-radius: 6px;
+    background-color: #fbe8d3;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form select:focus {
+    border-color: #ff8c42;
+    background-color: #fffaf5;
+    outline: none;
 }
 
 form button {
-    background-color: #007bff;
+    width: 100%;
+    margin-top: 15px; /* 👈 Adds gap between password and button */
+    padding: 12px;
+    background-color: #d2691e;
     color: #fff;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 16px;
     transition: background-color 0.3s;
 }
 
 form button:hover {
-    background-color: #0056b3;
+    background-color: #a0522d;
+}
+
+/* Login Specific Styles */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #fffdf9;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h1 {
+    color: #d2691e;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-container .error {
+    color: red;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Alert Message Styles */
+.alert {
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px 20px;
+    border-radius: 6px;
+    background-color: #ffe5b4;
+    color: #8a4b00;
+    border: 1px solid #f0c36d;
+    font-size: 16px;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+/* Button Styles */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px auto;
+    background-color: #ff7f50;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+/* Logout Button Customization */
+/* Header bar to align logout to right */
+.header-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 90%;
+    margin: 20px auto;
+}
+
+/* ✅ Logout container aligned top-right */
+.logout-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    margin: 10px auto 0 auto; /* Top margin adjusted */
+    padding-right: 10px;
+}
+
+/* 🔁 Match existing Add button style */
+.logout-button {
+    background-color: #ff7f50; /* Same coral as other buttons */
+    padding: 10px 20px;
+    margin: 0;
+}
+
+.logout-button:hover {
+    background-color: #e25822;
+}
+/* Align logout button to the right above the table */
+.top-bar {
+    width: 90%;
+    margin: 10px auto -10px auto; /* position just above table */
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+.button:hover {
+    background-color: #e25822;
 }
 
 /* Image Styles */
@@ -107,18 +217,5 @@ img {
     width: 90%;
     margin: auto;
     overflow: hidden;
-}
-
-.button {
-    display: inline-block;
-    padding: 10px 15px;
-    margin: 20px auto;
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-.button:hover {
-    background-color: #0056b3;
+    padding: 20px;
 }
